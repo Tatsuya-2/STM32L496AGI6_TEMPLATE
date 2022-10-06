@@ -111,8 +111,8 @@ extern "C" {
  *        This value is the default MSI range value after Reset.
  */
 #if !defined(MSI_VALUE)
-#define MSI_VALUE ((uint32_t)24000000U) /*!< Value of the Internal oscillator in Hz*/
-#endif                                  /* MSI_VALUE */
+#define MSI_VALUE ((uint32_t)4000000U) /*!< Value of the Internal oscillator in Hz*/
+#endif                                 /* MSI_VALUE */
 /**
  * @brief Internal High Speed oscillator (HSI) value.
  *        This value is used by the RCC HAL module to compute the system frequency
@@ -182,8 +182,8 @@ extern "C" {
  * @brief This is the HAL system configuration section
  */
 
-#define VDD_VALUE 3300U       /*!< Value of VDD in mv */
-#define TICK_INT_PRIORITY 15U /*!< tick interrupt priority */
+#define VDD_VALUE 3300U      /*!< Value of VDD in mv */
+#define TICK_INT_PRIORITY 5U /*!< tick interrupt priority */
 #define USE_RTOS 0U
 #define PREFETCH_ENABLE 0U
 #define INSTRUCTION_CACHE_ENABLE 1U
