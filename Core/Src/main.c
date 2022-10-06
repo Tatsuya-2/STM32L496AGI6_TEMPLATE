@@ -29,6 +29,7 @@
 #include "sai.h"
 #include "sdmmc.h"
 #include "spi.h"
+#include "tim.h"
 #include "usb_device.h"
 #include "gpio.h"
 #include "fmc.h"
@@ -110,7 +111,6 @@ int main(void)
   MX_DCMI_Init();
   MX_DFSDM1_Init();
   MX_FMC_Init();
-  MX_I2C1_Init();
   MX_I2C2_Init();
   MX_LPUART1_UART_Init();
   MX_USART1_UART_Init();
@@ -120,6 +120,9 @@ int main(void)
   MX_SDMMC1_SD_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();
+  MX_I2C1_Init();
+  MX_TIM17_Init();
+  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -232,6 +235,7 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void OnTimerCallback(TIM_TypeDef* timInstance);
 
 /* USER CODE END 4 */
 
@@ -253,7 +257,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-
+  else
+  {
+    OnTimerCallback(htim->Instance);
+  }
   /* USER CODE END Callback 1 */
 }
 
@@ -268,6 +275,8 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+    HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+    vTaskDelay(pdMS_TO_TICKS(100));
   }
   /* USER CODE END Error_Handler_Debug */
 }

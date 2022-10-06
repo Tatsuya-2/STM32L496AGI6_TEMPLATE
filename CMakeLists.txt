@@ -162,6 +162,7 @@ file(GLOB C_SRCS
     Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
     Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
     Core/Src/dma.c
+    Core/Src/tim.c
 )
 file(GLOB_RECURSE CPP_SRCS
     "UserApp/*.*"

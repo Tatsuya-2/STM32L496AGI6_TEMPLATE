@@ -4,6 +4,7 @@
 /* User Variables ---------------------------------------------------------*/
 
 //! User-Timers
+Timer timerHeartBeat(&htim16, 2);
 
 //! Debug LED LD3
 

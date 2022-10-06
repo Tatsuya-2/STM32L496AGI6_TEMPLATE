@@ -26,6 +26,7 @@ extern char serialNumberStr[13];
 
 /*---------------------------- C++ Scope ---------------------------*/
 #include "string"
+#include "timer.hpp"
 
 #endif
 #endif  // STM32L4_COMMON_INC_H
