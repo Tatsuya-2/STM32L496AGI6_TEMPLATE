@@ -40,6 +40,7 @@ static inline auto MakeObjTree()
   /*--------------- 3.Add Your Protocol Variables & Functions Here ----------------*/
   return make_protocol_member_list(
       // Add Read-Only Variables
+      make_protocol_ro_property("serial_number", &serialNumber),
       make_protocol_object("robot", robot.MakeProtocolDefinitions()));
 }
 
