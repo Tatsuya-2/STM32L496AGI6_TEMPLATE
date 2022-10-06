@@ -85,6 +85,7 @@ include_directories(
     Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc
     Drivers/CMSIS/Device/ST/STM32L4xx/Include
     Drivers/CMSIS/Include
+    UserApp
 )
 
 # sources
@@ -163,6 +164,7 @@ file(GLOB C_SRCS
     Core/Src/dma.c
 )
 file(GLOB_RECURSE CPP_SRCS
+    "UserApp/*.*"
 )
 file(GLOB ASM_SRCS
     startup_stm32l496xx.s

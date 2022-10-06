@@ -17,6 +17,7 @@
                 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc",
                 "USB_DEVICE/App",
                 "USB_DEVICE/Target",
+                "UserApp/**",
                 "${workspaceFolder}/Core/Inc"
             ],
             "defines": [
