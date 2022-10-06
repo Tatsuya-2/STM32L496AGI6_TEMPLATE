@@ -1,5 +1,7 @@
 #include "common_inc.h"
 
+extern Robot robot;
+
 void CommonAsciiCmd(const char* _cmd, StreamSink& _responseChannel)
 {
   std::string s(_cmd);

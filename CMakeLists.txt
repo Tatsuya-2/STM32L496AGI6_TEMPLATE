@@ -93,6 +93,8 @@ include_directories(
     Bsp/utils/arm_math
     UserApp
     UserApp/Protocols
+    Robot
+    Robot/Instances/inc
 )
 
 # sources
@@ -172,6 +174,7 @@ file(GLOB C_SRCS
     Core/Src/tim.c
 )
 file(GLOB_RECURSE CPP_SRCS
+    "Robot/*.*"
     "UserApp/*.*"
     "Bsp/*.*"
     "3rdParty/fibre/*.*"

@@ -9,6 +9,7 @@ Timer timerHeartBeat(&htim16, 2);
 //! Debug LED LD3
 
 //! Robot instance
+Robot robot;
 
 /* Thread Definitions -----------------------------------------------------*/
 

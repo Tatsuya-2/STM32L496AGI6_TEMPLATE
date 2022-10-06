@@ -28,6 +28,7 @@ extern char serialNumberStr[13];
 #include "string"
 #include "communication.hpp"
 #include "timer.hpp"
+#include "robot.hpp"
 
 #endif
 #endif  // STM32L4_COMMON_INC_H
