@@ -85,7 +85,14 @@ include_directories(
     Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc
     Drivers/CMSIS/Device/ST/STM32L4xx/Include
     Drivers/CMSIS/Include
+    3rdParty/fibre/cpp/include
+    3rdParty/fibre/cpp/include/fibre
+    Bsp
+    Bsp/communication
+    Bsp/utils
+    Bsp/utils/arm_math
     UserApp
+    UserApp/Protocols
 )
 
 # sources
@@ -166,6 +173,8 @@ file(GLOB C_SRCS
 )
 file(GLOB_RECURSE CPP_SRCS
     "UserApp/*.*"
+    "Bsp/*.*"
+    "3rdParty/fibre/*.*"
 )
 file(GLOB ASM_SRCS
     startup_stm32l496xx.s

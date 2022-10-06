@@ -26,6 +26,7 @@ extern char serialNumberStr[13];
 
 /*---------------------------- C++ Scope ---------------------------*/
 #include "string"
+#include "communication.hpp"
 #include "timer.hpp"
 
 #endif

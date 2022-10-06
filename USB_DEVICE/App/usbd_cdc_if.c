@@ -22,6 +22,9 @@
 #include "usbd_cdc_if.h"
 
 /* USER CODE BEGIN INCLUDE */
+#include "cmsis_os.h"
+#include <freertos_inc.h>
+#include "interface_usb.hpp"
 
 /* USER CODE END INCLUDE */
 
@@ -218,7 +221,13 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
       break;
 
     case CDC_GET_LINE_CODING:
-
+      pbuf[0] = (uint8_t)(USB_SERIAL_BAUD);
+      pbuf[1] = (uint8_t)(USB_SERIAL_BAUD >> 8);
+      pbuf[2] = (uint8_t)(USB_SERIAL_BAUD >> 16);
+      pbuf[3] = (uint8_t)(USB_SERIAL_BAUD >> 24);
+      pbuf[4] = 0;  // stop bits (1)
+      pbuf[5] = 0;  // parity (none)
+      pbuf[6] = 8;  // number of bits (8)
       break;
 
     case CDC_SET_CONTROL_LINE_STATE:
@@ -257,6 +266,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t* Len)
   /* USER CODE BEGIN 6 */
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+  usb_rx_process_packet(Buf, *Len);
   return (USBD_OK);
   /* USER CODE END 6 */
 }

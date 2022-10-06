@@ -24,6 +24,7 @@
 #include "usbd_conf.h"
 
 /* USER CODE BEGIN INCLUDE */
+#include "common_inc.h"
 
 /* USER CODE END INCLUDE */
 

@@ -27,4 +27,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 /* Default Entry -------------------------------------------------------*/
 void Main(void)
 {
+  // Init all communication staff, include USB-CDC/VCP/UART/CAN etc.
+  InitCommunication();
 }

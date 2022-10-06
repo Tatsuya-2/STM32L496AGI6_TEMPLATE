@@ -18,7 +18,12 @@
                 "USB_DEVICE/App",
                 "USB_DEVICE/Target",
                 "UserApp/**",
+                "UserApp/Protocols/**",
                 "${workspaceFolder}/Core/Inc"
+                "3rdParty/**",
+                "3rdParty/fibre/cpp/include/fibre",
+                "Bsp/communication",
+                "Bsp/utils/arm_math"
             ],
             "defines": [
                 "STM32L496xx",
