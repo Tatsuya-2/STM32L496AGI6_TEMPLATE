@@ -85,7 +85,7 @@ void vApplicationStackOverflowHook(xTaskHandle xTask, signed char* pcTaskName)
   printf("!!!StackOverflowHook!!!\n");
   for (;;)
   {
-    HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+    HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
     vTaskDelay(pdMS_TO_TICKS(200));
   }
 }
@@ -107,7 +107,7 @@ void vApplicationMallocFailedHook(void)
   printf("!!!MallocFailedHook!!!\n");
   for (;;)
   {
-    HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+    HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
     vTaskDelay(pdMS_TO_TICKS(100));
   }
 }

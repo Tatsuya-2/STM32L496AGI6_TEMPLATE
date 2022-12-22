@@ -53,13 +53,13 @@ void Timer::CalcRegister(uint32_t _freq)
   do
   {
     psc *= 2.0;
-    arr = 40000000.0f / psc / (float)_freq;
+    arr = 20000000.0f / psc / (float)_freq;
   } while (arr > 65535);
 
   if (htim->Instance == TIM16 || htim->Instance == TIM17)  // APB2 @192MHz
   {
     PSC = (uint16_t)round((double)psc) * 2;
-    ARR = (uint16_t)(40000000.0f / (float)_freq / psc);
+    ARR = (uint16_t)(20000000.0f / (float)_freq / psc);
   }
 }
 

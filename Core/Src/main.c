@@ -27,7 +27,6 @@
 #include "usart.h"
 #include "quadspi.h"
 #include "sai.h"
-#include "sdmmc.h"
 #include "spi.h"
 #include "tim.h"
 #include "usb_device.h"
@@ -135,7 +134,6 @@ int main(void)
   MX_USART2_UART_Init();
   MX_QUADSPI_Init();
   MX_SAI1_Init();
-  MX_SDMMC1_SD_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();
   MX_I2C1_Init();
@@ -233,12 +231,10 @@ void PeriphCommonClock_Config(void)
 
   /** Initializes the peripherals clock
    */
-  PeriphClkInit.PeriphClockSelection =
-      RCC_PERIPHCLK_SAI1 | RCC_PERIPHCLK_USB | RCC_PERIPHCLK_SDMMC1 | RCC_PERIPHCLK_ADC;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_SAI1 | RCC_PERIPHCLK_USB | RCC_PERIPHCLK_ADC;
   PeriphClkInit.Sai1ClockSelection = RCC_SAI1CLKSOURCE_PLLSAI1;
   PeriphClkInit.AdcClockSelection = RCC_ADCCLKSOURCE_PLLSAI1;
   PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLLSAI1;
-  PeriphClkInit.Sdmmc1ClockSelection = RCC_SDMMC1CLKSOURCE_PLLSAI1;
   PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_MSI;
   PeriphClkInit.PLLSAI1.PLLSAI1M = 1;
   PeriphClkInit.PLLSAI1.PLLSAI1N = 24;
@@ -293,7 +289,7 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
-    HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+    HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
     vTaskDelay(pdMS_TO_TICKS(100));
   }
   /* USER CODE END Error_Handler_Debug */
